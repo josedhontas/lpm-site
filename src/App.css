@@ -4,13 +4,14 @@
 /* CSS Variables */
 :root {
   /* Colors */
-  --primary-color:#ff3d00;
+  --primary-color:#FF6B35; /* Um laranja um pouco mais suave e moderno */
   --title-color: hsl(0, 0%, 100%);
   --text-color: hsl(0, 0%, 92%);
   --bg-color: hsl(216, 18%, 16%);
   --bg-color-alt: hsl(213, 10%, 21%);
   --container-color: hsl(217, 18%, 14%);
   --border-color: hsl(210, 2%, 65%);
+  /* Mantenha os gradientes como estão ou ajuste conforme a nova paleta */
   --first-gradient: linear-gradient(
     0deg,
     var(--bg-color-alt) 0%,
@@ -27,23 +28,24 @@
     var(--bg-color) 100%
   );
 
-  /* Typography */
+  /* Tipografia */
   --body-font: "Jost", sans-serif;
   --second-font: "Caveat", cursive;
 
-  --biggest-font-size: clamp(2.25rem, 1.125rem + 5.1429vw, 5.625rem);
-  --h1-font-size: clamp(1.75rem, 1.4167rem + 1.5238vw, 2.75rem);
-  --h2-font-size: 30px;
-  --h3-font-size: 28px;
-  --h4-font-size: 24px;
-  --h5-font-size: 22px;
-  --largest-font-size: 21px;
-  --larger-font-size: 20px;
-  --large-font-size: 18px;
-  --normal-font-size: 16px;
-  --small-font-size: 15px;
-  --smaller-font-size: 14px;
-  --tiny-font-size: 13px;
+  /* Tamanhos de fonte */
+  --biggest-font-size: clamp(3rem, 2.5rem + 2.5vw, 6rem); /* Ligeiramente maiores para impacto */
+  --h1-font-size: clamp(2rem, 1.75rem + 1.25vw, 3rem);   /* Mais definido */
+  --h2-font-size: 2.2rem; /* Uso de rem para escalabilidade */
+  --h3-font-size: 1.8rem;
+  --h4-font-size: 1.5rem;
+  --h5-font-size: 1.3rem;
+  --largest-font-size: 1.2rem;
+  --larger-font-size: 1.15rem;
+  --large-font-size: 1.1rem;
+  --normal-font-size: 1rem;     /* 16px padrão */
+  --small-font-size: 0.9375rem; /* 15px */
+  --smaller-font-size: 0.875rem; /* 14px */
+  --tiny-font-size: 0.8125rem;  /* 13px */
 
   /* Shadow */
   --shadow: 5px 5px rgb(255 255 255 / 10%);
@@ -54,15 +56,15 @@
 
 /* Light Theme */
 .light-theme {
-  --title-color: #000;
-  --text-color: #262626;
-  --bg-color: #f0ebe3;
-  --bg-color-alt: #fff;
-  --container-color: #fff;
-  --border-color: #000;
+  --title-color: #000; /* Preto puro para mais destaque nos títulos */
+  --text-color: #262626; /* Cinza bem escuro para o texto, quase preto */
+  --bg-color: #F8F4ED; /* Fundo creme/bege claro para o tema claro */
+  --bg-color-alt: #FFFFFF; /* Fundo branco puro para elementos alternativos */
+  --container-color: #FFFFFF;
+  --border-color: #000; /* Borda preta para mais contraste */
 
   /* Shadow */
-  --shadow: 5px 5px rgb(0 0 0 / 20%);
+  --shadow: 5px 5px rgb(0 0 0 / 20%); /* Sombra mais destacada */
 }
 
 .light-theme .skills__bar {

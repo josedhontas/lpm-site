@@ -117,12 +117,14 @@
   display: flex;
   align-items: center;
   column-gap: 40px;
+  z-index: 999;
 }
 
 .theme__toggler {
   font-size: var(--h4-font-size);
   display: flex;
   align-items: center;
+  z-index: 999;
 }
 
 .nav__toggle {
