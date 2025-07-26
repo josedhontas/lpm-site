@@ -20,16 +20,17 @@ i18n
           contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Ramal",
-          contactExtensionData: "6315",
+          contactExtensionTitle: "Ramais", // Título atualizado para plural
+          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
+            "Gabinete CIDA: (79) 3194-7680", //
+            "Laboratório CIDA: (79) 3194-7681" //
+          ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "Doutorado em Engenharia Mecânica pela EESC-USP, Mestrado em Engenharia Mecânica pelo ITA, e graduação em Engenharia Mecatrônica pela EESC-USP.",
-
           studentsTitle: "Alunos",
           publicationsTitle: "Publicações",
           projectsTitle: "Projetos",
           all: "Todos"
-
         },
       },
       en: {
@@ -47,15 +48,17 @@ i18n
           contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Extension",
-          contactExtensionData: "6315",
+          contactExtensionTitle: "Extensions", // Título atualizado para plural
+          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
+            "CIDA Office: (79) 3194-7680", //
+            "CIDA Laboratory: (79) 3194-7681" //
+          ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "PhD in Mechanical Engineering from EESC-USP, Master's in Mechanical Engineering from ITA, and a degree in Mechatronic Engineering from EESC-USP.",
           studentsTitle: "Students",
           publicationsTitle: "Publications",
           projectsTitle: "Projects",
           all: "All"
-
         },
       },
       fr: {
@@ -63,7 +66,7 @@ i18n
           title: "À propos",
           subtitle: "Contributeur aux innovations à l'UFS",
           researchAndExtension: "Recherche et Extension",
-          description: "Le Centre d’Innovation en Durabilité Accélérée (CIDA), créé en 2024 à partir du Laboratoire de Projets Mécaniques de l’Université Fédérale de Sergipe (UFS), en partenariat avec l’Institut de Recherches sur les Catastrophes (IPD), développe des activités d’enseignement, de recherche et de vulgarisation axées sur l’innovation technologique. Il travaille sur des thèmes tels que les drones, les essaims, les métamatériaux, la vision par ordinateur, l’intelligence artificielle, la photogrammétrie et les énergies renouvelables. Le centre organise aussi des ateliers pratiques, comme ceux de mini-fusées, d’astronomie, et soutient des équipes étudiantes comme Zenith (fusées) et Swarm 79 (drones).",
+          description: "Le Centre d’Innovation en Durabilité Accelerée (CIDA), créé en 2024 à partir du Laboratoire de Projets Mécaniques de l’Université Fédérale de Sergipe (UFS), en partenariat avec l’Institut de Recherches sur les Catastrophes (IPD), développe des activités d’enseignement, de recherche et de vulgarisation axées sur l’innovation technologique. Il travaille sur des thèmes tels que les drones, les essaims, les métamatériaux, la vision par ordinateur, l’intelligence artificielle, la photogrammétrie et les énergies renouvelables. Le centre organise aussi des ateliers pratiques, comme ceux de mini-fusées, d’astronomie, et soutient des équipes étudiantes comme Zenith (fusées) et Swarm 79 (drones).",
           instagram: "Instagram",
           email: "Email",
           equipmentsTitle: "Équipements",
@@ -73,25 +76,21 @@ i18n
           contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Poste",
-          contactExtensionData: "6315",
+          contactExtensionTitle: "Postes", // Título atualizado para plural
+          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
+            "Bureau CIDA: (79) 3194-7680", //
+            "Laboratoire CIDA: (79) 3194-7681" //
+          ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "Doctorat en génie mécanique de l'EESC-USP, maîtrise en génie mécanique de l'ITA et diplôme en génie mécatronique de l'EESC-USP.",
-
           studentsTitle: "Étudiants",
           publicationsTitle: "Publications",
-            projectsTitle: "Projets",
-            all: "Tous"
-
-
-
-
-
-
+          projectsTitle: "Projets",
+          all: "Tous"
         },
       },
     },
-    lng: 'pt', 
+    lng: 'pt',
     fallbackLng: 'pt',
     interpolation: { escapeValue: false },
   });

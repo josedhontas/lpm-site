@@ -1,12 +1,13 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { FaRegAddressBook, FaRegEnvelope, FaRegUser, FaRegMap } from 'react-icons/fa'
+import React from 'react'
+import { FaRegAddressBook, FaRegEnvelope, FaRegMap } from 'react-icons/fa'
 import profileImg from '../../assets/pessoal/alexandre.png'
 import { useTranslation } from 'react-i18next'
 import './contato.css'
 
 const Contact = () => {
     const { t } = useTranslation()
+
+    const extensions = t('contactExtensionData', { returnObjects: true })
 
     return (
         <section className="contato section" id="contato">
@@ -41,13 +42,19 @@ const Contact = () => {
                         </span>
 
                         <h3 className="contact__card-title">{t('contactExtensionTitle')}</h3>
-                        <p className="contact__card-data">{t('contactExtensionData')}</p>
+                        {Array.isArray(extensions) ? (
+                            extensions.map((line, index) => (
+                                <p className="contact__card-data" key={index}>{line}</p>
+                            ))
+                        ) : (
+                            <p className="contact__card-data">{extensions}</p>
+                        )}
                     </div>
                 </div>
 
                 <div className="home__img-wrapper">
-                    <div className=" home__banner">
-                        <img src={profileImg} alt="" className='home__profile' />
+                    <div className="home__banner">
+                        <img src={profileImg} alt="" className="home__profile" />
                     </div>
 
                     <p className="home__data home__data-one">
