@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineEmail } from "react-icons/md";
-import { FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaChevronDown } from 'react-icons/fa'; // Importe FaChevronDown
 import { linksPT, linksEN, linksFR } from '../../Data'; // Importa os dados de links para cada idioma
 import { BsSun, BsMoon } from 'react-icons/bs';
 import './header.css';
@@ -22,6 +22,7 @@ const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [scrollNav, setScrollNav] = useState(false);
     const [theme, setTheme] = useState(getStorageTheme()); 
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false); // Novo estado para o dropdown de idiomas
 
     // Seleciona os links de navegação conforme o idioma atual
     const linksData = i18n.language === 'fr' ? linksFR
@@ -41,8 +42,13 @@ const Header = () => {
         setTheme(newTheme);
     };
 
-    const changeLanguage = (lang) => {
+    const toggleLanguageDropdown = () => { // Função para alternar o dropdown
+        setShowLanguageDropdown(prev => !prev);
+    };
+
+    const changeLanguageAndCloseDropdown = (lang) => { // Função para mudar idioma e fechar dropdown
         i18n.changeLanguage(lang);
+        setShowLanguageDropdown(false);
     };
 
     useEffect(() => {
@@ -59,30 +65,20 @@ const Header = () => {
         localStorage.setItem('theme', theme);
     }, [theme]);
 
-    const renderFlags = () => {
-        if (i18n.language === 'pt') {
-            return (
-                <>
-                    <img src={usa} alt="Inglês" className="flag" onClick={() => changeLanguage('en')} />
-                    <img src={france} alt="França" className="flag" onClick={() => changeLanguage('fr')} />
-                </>
-            );
-        } else if (i18n.language === 'en') {
-            return (
-                <>
-                    <img src={brazil} alt="Português" className="flag" onClick={() => changeLanguage('pt')} />
-                    <img src={france} alt="França" className="flag" onClick={() => changeLanguage('fr')} />
-                </>
-            );
-        } else if (i18n.language === 'fr') {
-            return (
-                <>
-                    <img src={brazil} alt="Português" className="flag" onClick={() => changeLanguage('pt')} />
-                    <img src={usa} alt="Inglês" className="flag" onClick={() => changeLanguage('en')} />
-                </>
-            );
-        }
-    };
+    // Efeito para fechar o dropdown ao clicar fora
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (showLanguageDropdown && !event.target.closest('.language__flags')) {
+                setShowLanguageDropdown(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showLanguageDropdown]);
+
 
     return (
         <header className={`${scrollNav ? 'scroll-header' : ''} header`}>
@@ -127,14 +123,59 @@ const Header = () => {
                 </div>
 
                 <div className="nav__btns">
-                    <div className="language__flags">
-                        {renderFlags()}
-                    </div>
+                    {/* Novo grupo para configurações */}
+                    <div className="header__settings-group"> 
+                        {/* Language Dropdown */}
+                        <div className="language__flags" onClick={toggleLanguageDropdown}>
+                            {/* Bandeira do idioma ativo como gatilho */}
+                            <img 
+                                src={
+                                    i18n.language === 'pt' ? brazil :
+                                    i18n.language === 'en' ? usa :
+                                    france
+                                } 
+                                alt={i18n.language === 'pt' ? 'Português' : i18n.language === 'en' ? 'English' : 'Français'} 
+                                className="flag active-flag-trigger"
+                            />
+                            {/* Seta do dropdown */}
+                            <FaChevronDown className={`dropdown-arrow ${showLanguageDropdown ? 'open' : ''}`} />
 
-                    <div className="theme__toggler" onClick={toggleTheme}>
-                        {theme === 'light-theme' ? <BsMoon /> : <BsSun />}
-                    </div>
+                            {/* Menu Dropdown */}
+                            {showLanguageDropdown && (
+                                <div className="language-dropdown-menu">
+                                    {/* Apenas mostra as bandeiras que NÃO são o idioma ativo */}
+                                    {i18n.language !== 'pt' && (
+                                        <div className="dropdown-item" onClick={() => changeLanguageAndCloseDropdown('pt')}>
+                                            <img src={brazil} alt="Português" className="flag dropdown-flag" />
+                                            <span>Português</span>
+                                        </div>
+                                    )}
+                                    {i18n.language !== 'en' && (
+                                        <div className="dropdown-item" onClick={() => changeLanguageAndCloseDropdown('en')}>
+                                            <img src={usa} alt="Inglês" className="flag dropdown-flag" />
+                                            <span>English</span>
+                                        </div>
+                                    )}
+                                    {i18n.language !== 'fr' && (
+                                        <div className="dropdown-item" onClick={() => changeLanguageAndCloseDropdown('fr')}>
+                                            <img src={france} alt="França" className="flag dropdown-flag" />
+                                            <span>Français</span>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+                        </div>
 
+                        {/* Theme Toggler */}
+                        <div className="theme__toggler" onClick={toggleTheme}>
+                            <div className={`toggle-thumb ${theme === 'dark-theme' ? 'dark-mode-active' : 'light-mode-active'}`}>
+                                <BsMoon className={`theme-icon moon-icon ${theme === 'light-theme' ? 'active' : ''}`} />
+                                <BsSun className={`theme-icon sun-icon ${theme === 'dark-theme' ? 'active' : ''}`} />
+                            </div>
+                        </div>
+                    </div> {/* Fim do header__settings-group */}
+
+                    {/* Nav Toggle */}
                     <div
                         className={`${showMenu ? 'nav__toggle animate-toggle' : 'nav__toggle'}`}
                         onClick={() => setShowMenu(!showMenu)}

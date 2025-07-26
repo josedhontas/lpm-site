@@ -12,22 +12,105 @@
   animation: header_animate 0.8s var(--transition) 0s forwards;
 }
 
-
+/* Container principal do dropdown de idiomas */
 .language__flags {
-  display: flex;
-  column-gap: 10px;
-  align-items: center;
+    position: relative; /* Para posicionar o dropdown menu */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre a bandeira ativa e a seta */
+    background-color: var(--bg-color-alt);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 99; /* Garante que fique acima de outros elementos se necessário */
 }
 
-.flag {
-  width: 24px; 
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s;
+/* Estilo para a bandeira que serve de gatilho do dropdown */
+.active-flag-trigger {
+    width: 28px; 
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
 }
 
-.flag:hover {
-  transform: scale(1.1);
+/* Estilo para a seta do dropdown */
+.dropdown-arrow {
+    font-size: 14px;
+    color: var(--title-color);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg); /* Gira a seta quando o dropdown está aberto */
+}
+
+/* Estilo do menu dropdown */
+.language-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px); /* Posição abaixo do gatilho */
+    left: 0;
+    background-color: var(--bg-color-alt);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Garante que os itens fiquem dentro das bordas */
+    min-width: 120px; /* Largura mínima para o texto */
+    padding: 5px 0;
+    z-index: 100; /* Acima de tudo */
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.language__flags:has(.language-dropdown-menu) .language-dropdown-menu { /* Mostra o menu quando showLanguageDropdown é true */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+
+/* Estilo para cada item do dropdown */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color); /* Cor de destaque no hover */
+    color: var(--title-color); /* Cor do texto no hover */
+}
+
+.dropdown-item:hover .dropdown-flag {
+    transform: scale(1.05); /* Efeito de zoom na bandeira no hover do item */
+}
+
+/* Estilo para as bandeiras dentro do dropdown */
+.dropdown-flag {
+    width: 24px; /* Tamanho ligeiramente menor para as bandeiras do menu */
+    height: auto;
+    border-radius: 2px;
+}
+
+/* Ajustes de cor para o light-theme */
+.light-theme .language__flags {
+    border-color: var(--border-color);
+}
+
+.light-theme .language-dropdown-menu {
+    border-color: var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--title-color);
 }
 
 
@@ -116,15 +199,85 @@
 .nav__btns {
   display: flex;
   align-items: center;
-  column-gap: 40px;
+  column-gap: 40px; /* Mantém o espaço entre o grupo de settings e o toggle do menu */
   z-index: 999;
 }
 
+/* Novo estilo para o grupo de configurações */
+.header__settings-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o dropdown de idioma e o toggle de tema */
+}
+
+/* Estilos para o botão de alternância de tema */
 .theme__toggler {
-  font-size: var(--h4-font-size);
-  display: flex;
-  align-items: center;
-  z-index: 999;
+    width: 60px; /* Largura do trilho do botão */
+    height: 30px; /* Altura do trilho do botão */
+    background-color: var(--bg-color-alt); /* Cor de fundo do trilho */
+    border: 2px solid var(--border-color); /* Borda do trilho */
+    border-radius: 15px; /* Bordas arredondadas para o trilho */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; /* Importante para que os ícones não vazem */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.toggle-thumb {
+    width: 50%; /* Ocupa metade do trilho */
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1; /* Garante que fique acima dos ícones */
+}
+
+.toggle-thumb.light-mode-active {
+    transform: translateX(0%); /* Posição inicial à esquerda */
+    background-color: var(--primary-color);
+}
+
+.toggle-thumb.dark-mode-active {
+    transform: translateX(100%); /* Move para a direita (50% do pai) */
+    background-color: var(--primary-color);
+}
+
+.theme-icon {
+    font-size: 16px;
+    color: var(--title-color);
+    position: absolute; /* Posiciona os ícones sobre o trilho */
+    transition: opacity 0.3s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.moon-icon {
+    left: 25%; /* Centraliza o ícone da lua na metade esquerda */
+    opacity: 1; /* Visível por padrão no modo claro */
+}
+
+.sun-icon {
+    right: 25%; /* Centraliza o ícone do sol na metade direita */
+    opacity: 0; /* Oculto por padrão no modo claro */
+}
+
+/* Regras de visibilidade para os ícones baseadas no tema ativo */
+.light-mode-active .moon-icon {
+    opacity: 1;
+}
+
+.light-mode-active .sun-icon {
+    opacity: 0;
+}
+
+.dark-mode-active .moon-icon {
+    opacity: 0;
+}
+
+.dark-mode-active .sun-icon {
+    opacity: 1;
 }
 
 .nav__toggle {
