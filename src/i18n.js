@@ -17,13 +17,17 @@ i18n
           equipmentsDescription: "Aqui estão alguns dos equipamentos utilizados pelo laboratório.",
           contactTitle: "Contato",
           contactAddressTitle: "Endereço",
-          contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+          contactAddressData: [ // AGORA É UM ARRAY DE STRINGS
+            "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+            "Nupeg, sala 3 (laboratório)",
+            "sala 4 (gabinete)"
+          ],
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Ramais", // Título atualizado para plural
-          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
-            "Gabinete CIDA: (79) 3194-7680", //
-            "Laboratório CIDA: (79) 3194-7681" //
+          contactExtensionTitle: "Ramais",
+          contactExtensionData: [
+            "Gabinete CIDA: (79) 3194-7680",
+            "Laboratório CIDA: (79) 3194-7681"
           ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "Doutorado em Engenharia Mecânica pela EESC-USP, Mestrado em Engenharia Mecânica pelo ITA, e graduação em Engenharia Mecatrônica pela EESC-USP.",
@@ -45,13 +49,17 @@ i18n
           equipmentsDescription: "Here are some of the equipment used by the laboratory.",
           contactTitle: "Contact",
           contactAddressTitle: "Address",
-          contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+          contactAddressData: [ // NOW IT'S AN ARRAY OF STRINGS
+            "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+            "Nupeg, Room 3 (laboratory)",
+            "Room 4 (office)"
+          ],
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Extensions", // Título atualizado para plural
-          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
-            "CIDA Office: (79) 3194-7680", //
-            "CIDA Laboratory: (79) 3194-7681" //
+          contactExtensionTitle: "Extensions",
+          contactExtensionData: [
+            "CIDA Office: (79) 3194-7680",
+            "CIDA Laboratory: (79) 3194-7681"
           ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "PhD in Mechanical Engineering from EESC-USP, Master's in Mechanical Engineering from ITA, and a degree in Mechatronic Engineering from EESC-USP.",
@@ -73,13 +81,17 @@ i18n
           equipmentsDescription: "Voici quelques-uns des équipements utilisés par le laboratoire.",
           contactTitle: "Contact",
           contactAddressTitle: "Adresse",
-          contactAddressData: "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+          contactAddressData: [ // MAINTENANT C'EST UN TABLEAU DE CHAÎNES
+            "Avenida Marechal Rondon Jardim s/n - Rosa Elze, São Cristóvão - SE, 49100-000",
+            "Nupeg, salle 3 (laboratoire)",
+            "salle 4 (bureau)"
+          ],
           contactEmailTitle: "Email",
           contactEmailData: "alexandre.ramos@academico.ufs.br",
-          contactExtensionTitle: "Postes", // Título atualizado para plural
-          contactExtensionData: [ // AGORA É UM ARRAY DE STRINGS
-            "Bureau CIDA: (79) 3194-7680", //
-            "Laboratoire CIDA: (79) 3194-7681" //
+          contactExtensionTitle: "Postes",
+          contactExtensionData: [
+            "Bureau CIDA: (79) 3194-7680",
+            "Laboratoire CIDA: (79) 3194-7681"
           ],
           contactName: "Alexandre Carlos Rodrigues Ramos",
           contactBio: "Doctorat en génie mécanique de l'EESC-USP, maîtrise en génie mécanique de l'ITA et diplôme en génie mécatronique de l'EESC-USP.",

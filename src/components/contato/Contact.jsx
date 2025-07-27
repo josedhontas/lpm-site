@@ -8,6 +8,7 @@ const Contact = () => {
     const { t } = useTranslation()
 
     const extensions = t('contactExtensionData', { returnObjects: true })
+    const addressData = t('contactAddressData', { returnObjects: true }) // Adicione esta linha para obter o array
 
     return (
         <section className="contato section" id="contato">
@@ -24,7 +25,14 @@ const Contact = () => {
                         </span>
 
                         <h3 className="contact__card-title">{t('contactAddressTitle')}</h3>
-                        <p className="contact__card-data">{t('contactAddressData')}</p>
+                        {/* Modifique esta parte para renderizar o array */}
+                        {Array.isArray(addressData) ? (
+                            addressData.map((line, index) => (
+                                <p className="contact__card-data" key={index}>{line}</p>
+                            ))
+                        ) : (
+                            <p className="contact__card-data">{addressData}</p>
+                        )}
                     </div>
 
                     <div className="contact__card">
