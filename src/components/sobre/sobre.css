@@ -224,3 +224,12 @@
   bottom: 0%;
   right: -2%;
 }
+
+@media screen and (max-width: 768px) {
+  .home__text {
+    text-align: justify !important;
+    padding-inline: 20px; /* Espaço nas laterais para melhorar a leitura */
+  }
+}
+
+
