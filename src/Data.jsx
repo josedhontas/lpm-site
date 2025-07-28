@@ -15,6 +15,7 @@ import geradorfuncoes from './assets/equipamentos/geradorfuncoes.png';
 import maquinacoordenadas from './assets/equipamentos/maquinacoordenadas.png'
 import martelo from './assets/equipamentos/martelo.png';
 import labview from './assets/equipamentos/labview.png';
+import daq from './assets/equipamentos/daq.png'; // Certifique-se de que o caminho está correto para a imagem do DAQ
 
 import fabricia from './assets/pessoal/fabricia.jpg';
 import daniel from './assets/pessoal/daniel.jpg';
@@ -296,6 +297,12 @@ export const equipamentosPT = [
     name: 'Software LabVIEW',
     description: 'Ambiente gráfico de programação da National Instruments, amplamente utilizado em instrumentação, aquisição de dados e controle de sistemas.',
   },
+    {
+    id: 9, // Você pode ajustar o ID conforme sua necessidade, mas garanta que seja único se for usado como chave em React.
+    img: daq, // Use uma imagem que represente bem o DAQ, talvez o computador ou uma nova imagem de um DAQ.
+    name: 'Sistema DAQ',
+    description: 'Sistema completo para medições em ensaios estruturais, incluindo análise modal e resposta em frequência, com interface gráfica de controle por software.'
+  },
   {
     id: 1,
     img: martelo, // substitua pelo caminho real ou import da imagem
@@ -361,6 +368,12 @@ export const equipamentosEN = [
   name: 'LabVIEW Software',
   description: 'Graphical programming environment from National Instruments, widely used in instrumentation, data acquisition, and system control.',
 },
+  {
+    id: 9,
+    img: daq, // Use an image that best represents DAQ, perhaps the computer or a new DAQ image.
+    name: 'DAQ System',
+    description: 'Complete system for measurements in structural tests, including modal analysis and frequency response, with graphical software control interface.'
+  },
 {
   id: 1,
   img: martelo, // replace with the actual path or import of the image
@@ -426,6 +439,12 @@ export const equipamentosFR = [
   name: 'Logiciel LabVIEW',
   description: 'Environnement de programmation graphique de National Instruments, largement utilisé en instrumentation, acquisition de données et contrôle de systèmes.',
 },
+  {
+    id: 9,
+    img: daq, // Utilisez une image qui représente bien le DAQ, peut-être l'ordinateur ou une nouvelle image de DAQ.
+    name: 'Système DAQ',
+    description: 'Système complet pour les mesures lors d\'essais structurels, y compris l\'analyse modale et la réponse en fréquence, avec interface de contrôle graphique logicielle.'
+  },
 {
   id: 1,
   img: martelo, // remplacez par le chemin réel ou l'import de l'image
