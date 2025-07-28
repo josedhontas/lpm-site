@@ -1,18 +1,45 @@
 .equipamentos {
   background-image: var(--second-gradient);
 }
+
+/* Estilo para as setas de navegação (próximo e anterior) */
 .swiper-button-next,
 .swiper-button-prev {
-    color: var(--primary-color);
+  color: var(--primary-color); /* Cor principal do tema */
+  font-size: 2.5rem; /* Aumenta o tamanho das setas */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s var(--transition); /* Adiciona transição suave */
+  z-index: 10; /* Garante que as setas fiquem acima dos slides */
+  opacity: 0.8; /* Levemente transparente */
 }
 
+.swiper-button-prev {
+  left: 10px; /* Mais próximo da borda esquerda */
+}
+
+.swiper-button-next {
+  right: 10px; /* Mais próximo da borda direita */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: var(--title-color); /* Muda a cor ao passar o mouse */
+  opacity: 1; /* Torna-se totalmente visível */
+  transform: translateY(-50%) scale(1.1); /* Leve zoom ao passar o mouse */
+}
+
+/* Estilo da imagem dentro do card */
 .testimonial__img {
-  height: 180px;
+  height: 200px; /* Aumenta a altura da imagem para um visual mais impactante */
   width: 100%;
-  border-radius: 18px;
-  object-fit: cover;
-  margin-bottom: 30px;
+  border-radius: 18px; /* Mantém as bordas arredondadas */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  margin-bottom: 25px; /* Ajusta o espaçamento abaixo da imagem */
   vertical-align: middle;
+  box-shadow: var(--shadow); /* Adiciona uma sombra sutil à imagem */
 }
 
 .swiper-wrapper {
@@ -21,25 +48,38 @@
 
 .services__container {
   text-align: center;
+  padding-inline: 40px; /* Adiciona padding horizontal ao container para evitar que as setas fiquem muito coladas nas bordas */
 }
 
+/* Estilo do subtítulo (nome do equipamento) */
 .services__subtitle {
   color: var(--title-color);
-  font-size: var(--tiny-font-size);
+  font-size: var(--normal-font-size); /* Tamanho de fonte um pouco maior */
   font-weight: 700;
-  margin-bottom: 25px;
+  margin-bottom: 15px; /* Ajusta o espaçamento abaixo do subtítulo */
   display: block;
   text-align: center;
 }
 
-.services__title {
-  font-size: var(--h4-font-size);
-  margin-bottom: 15px;
+/* Estilo da descrição */
+.services__description {
+  min-height: 90px; /* Aumenta a altura mínima para acomodar mais texto e manter a consistência */
+  text-align: center; /* Centraliza o texto para melhor alinhamento no card */
+  line-height: 1.6; /* Aumenta a altura da linha para melhor legibilidade */
+  color: var(--text-color); /* Garante que a cor do texto seja a do tema */
 }
 
-.services__description {
-  min-height: 85px;
-  text-align: justify;
+/* Melhorias gerais nos cards */
+.services__item.card-one {
+    padding: 35px 30px; /* Aumenta o padding interno para mais "ar" */
+    border-radius: 20px; /* Borda mais arredondada */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição ao passar o mouse */
+}
+
+.services__item.card-one:hover {
+    transform: translateY(-5px); /* Leve levantamento do card ao passar o mouse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
 }
 
 
