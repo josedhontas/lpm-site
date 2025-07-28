@@ -6,14 +6,22 @@
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--primary-color); /* Cor principal do tema */
-  font-size: 2.5rem; /* Aumenta o tamanho das setas */
+  font-size: 3rem; /* Aumenta um pouco mais o tamanho das setas */
   top: 50%; /* Centraliza verticalmente */
   transform: translateY(-50%);
   position: absolute;
   cursor: pointer;
   transition: all 0.3s var(--transition); /* Adiciona transição suave */
   z-index: 10; /* Garante que as setas fiquem acima dos slides */
-  opacity: 0.8; /* Levemente transparente */
+  opacity: 0.9; /* Deixa a seta um pouco mais visível */
+  width: 50px; /* Mantém uma área de clique consistente */
+  height: 50px; /* Mantém uma área de clique consistente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Removido: background-color: rgba(0, 0, 0, 0.4); */
+  /* Removido: border-radius: 50%; */
+  /* Removido: box-shadow: var(--shadow); */
 }
 
 .swiper-button-prev {
@@ -26,10 +34,13 @@
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: var(--title-color); /* Muda a cor ao passar o mouse */
+  color: var(--title-color); /* Muda a cor da seta para o título ao passar o mouse */
   opacity: 1; /* Torna-se totalmente visível */
-  transform: translateY(-50%) scale(1.1); /* Leve zoom ao passar o mouse */
+  transform: translateY(-50%) scale(1.05); /* Leve zoom ao passar o mouse */
+  border: 2px solid var(--border-color); /* Adiciona uma borda sutil ao passar o mouse */
+  border-radius: 50%; /* Mantém o formato circular do "destaque" */
 }
+
 
 /* Estilo da imagem dentro do card */
 .testimonial__img {
